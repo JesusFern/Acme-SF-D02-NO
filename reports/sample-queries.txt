@@ -1,0 +1,160 @@
+# sample-queries.txt
+
+select ua.enabled, count(ua)
+from UserAccount ua
+group by ua.enabled;
+
+select 
+    ua.enabled,  
+    avg(length(ua.username))
+from UserAccount ua
+group by ua.enabled;
+
+select year(s.moment),  count(s)
+from Shout s
+where year(s.moment) >= 2000
+group by year(s.moment);
+
+select year(s.moment), count(s)
+from Shout s
+where year(s.moment) >= 2000
+group by year(s.moment)
+having count(s) >= 2;
+
+select ua.enabled,
+            avg(length(ua.username)) 
+from UserAccount ua 
+group by ua.enabled 
+having avg(length(ua.username)) > 5;
+
+select ua
+from UserAccount ua
+where ua.enabled = true;
+
+select ar.id, ar.version
+from AbstractRole ar;
+
+select distinct length(ua.username)
+from UserAccount ua
+where ua.enabled = 1;
+
+select j.reference, j.salary
+from Job j
+where j.salary.currency = 'EUR';
+
+select avg(j.salary.amount)
+from Job j
+where j.salary.currency = 'EUR';
+
+select j.reference,
+           avg(j.salary.amount)
+from Job j
+where j.salary.currency = 'EUR';
+
+select ua.enabled, count(ua)
+from UserAccount ua
+group by ua.enabled;
+
+select ua.username, ua.password
+from UserAccount ua
+group by ua.enabled;
+
+select s.author, length(s.text)
+from Shout s;
+
+select lower(s.author), upper(s.text)
+from Shout s 
+where length(s.text) < 25;
+
+select concat(s.author, ': ', substring(s.text, 1, 10))
+from Shout s
+where lower(s.author) = 'John Doe';
+
+select s 
+from Shout s 
+where s.moment >= '2020-07-01 10:00:00';
+
+select year(s.moment) 
+from Shout s 
+where s.moment >= '2020-07-01 10:00:00';
+
+select s.author 
+from Shout s 
+where year(s.moment) = year(current_date()) - 1;
+
+select count(s) 
+from Shout s;
+
+select sum(j.salary.amount) 
+from Job j 
+where j.employer.sector like '%Sector 1%';
+
+select avg(j.salary.amount)
+from Job j
+where j.deadline >= current_date();
+
+select min(s.moment), max(s.moment) 
+from Shout s 
+where year(s.moment) = year(current_date()) - 1;
+
+select avg(size(ua.userRoles)), stddev(size(ua.userRoles))
+from UserAccount ua 
+where ua.enabled = true;
+
+select ar
+from AbstractRole ar
+where type(ar) = Worker;
+
+select ar 
+from AbstractRole ar 
+where type(ar) = AbstractRole;
+
+select j
+from Job j 
+where j.employer.id = 36;
+
+select j
+from Job j 
+where j.employer.sector like '%Sector 1%';
+
+select j
+from Job j 
+where j.employer.userAccount.
+      username like '%employer%';
+
+select ua.username
+from UserAccount ua 
+join ua.userRoles ur 
+where type(ur) = Employer;
+
+select ua.username
+from UserAccount ua 
+join ua.userRoles ur 
+where type(ur) = Employer and ur.sector like '%Sector 1%';
+
+select e 
+from Employer e 
+where not exists(
+    select j 
+    from Job j 
+    where j.employer.id = e.id);
+
+select e 
+from Employer e 
+where e.id in (
+    select a.job.employer.id 
+    from Application a 
+    where a.job.employer.id = e.id);
+
+select j 
+from Job j 
+where j.salary.amount >= all(
+    select k.salary.amount 
+    from Job k);
+
+select j 
+from Job j 
+where j.salary.amount > any(
+    select k.salary.amount 
+    from Job k);
+

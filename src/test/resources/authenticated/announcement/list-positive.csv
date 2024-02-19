@@ -1,0 +1,5 @@
+recordIndex,moment,status,title
+0,2022/07/10 12:00,INFO,The system's working well
+1,2022/07/15 12:00,IMPORTANT,Great discount
+2,2022/07/20 00:00,INFO,The system's restarted
+3,2022/07/25 15:00,WARNING,The system's restarted again

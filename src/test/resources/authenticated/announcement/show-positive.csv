@@ -1,0 +1,5 @@
+recordIndex,title,status,text,moreInfo
+0,The system's working well,INFO,The system's gone through extensive testing and it works pretty well.,
+1,Great discount,IMPORTANT,You may now benefit from our great volume discount!,http://www.acme-jobs.com/discount
+2,The system's restarted,INFO,The system's been restarted after updating it.,
+3,The system's restarted again,WARNING,We're sorry. The update didn't work well.,http://www.us.es
