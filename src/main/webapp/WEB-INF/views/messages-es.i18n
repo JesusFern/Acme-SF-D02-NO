@@ -11,3 +11,4 @@
 validation.job.reference	= La referencia sólo puede contener letras, dígitos, subrayados y guiones  
 default.placeholder.phone	= Use formato internacional +99 (999) 999999
 validation.project.code		= El formato del código no es correcto, debe ser de la forma: [A-Z]{3}-[0-9]{4}
+validation.risk.reference	= El formato de la referencia no es correcto, debe ser de la forma:: R-[0-9]{3}
