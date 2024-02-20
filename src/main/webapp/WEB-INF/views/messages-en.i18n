@@ -10,3 +10,4 @@
 
 validation.job.reference	= The reference must have letters, digits, underscores, and hyphens only
 default.placeholder.phone	= Use international format +99 (999) 999999 
+validation.project.code		= The format of the code is not correct, it should be of the form: [A-Z]{3}-[0-9]{4}
